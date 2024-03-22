@@ -13,7 +13,9 @@ from leetcode_0088_merge_sorted_array import api
         [[1], [0], 0, [1], 1],
     ),
 )
-def test_merge_sorted_array(result, nums1, m, nums2, n) -> None:
+def test_merge_sorted_array(
+    result: list[int], nums1: list[int], m: int, nums2: list[int], n: int
+) -> None:
     """Tests solution for problem Merge Sorted Array"""
 
     assert api.merge_sorted_array(nums1, m, nums2, n) == result
