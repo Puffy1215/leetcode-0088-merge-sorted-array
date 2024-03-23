@@ -18,4 +18,6 @@ def test_merge_sorted_array(
 ) -> None:
     """Tests solution for problem Merge Sorted Array"""
 
-    assert api.merge_sorted_array(nums1, m, nums2, n) == result
+    api.merge_sorted_array(nums1, m, nums2, n)
+
+    assert nums1 == result
