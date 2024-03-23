@@ -35,6 +35,6 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
 def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     """Solves problem Merge Sorted Array"""
 
-    assert _check_preconditions(...)
+    assert _check_preconditions(nums1, m, nums2, n)
 
     pass
