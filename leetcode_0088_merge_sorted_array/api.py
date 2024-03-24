@@ -35,9 +35,20 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
 def _reverse(nums: list[int]) -> None:
     for i in range(len(nums)//2):
         nums[i], nums[-(i+1)] = nums[-(i+1)], nums[i]
-    for i in range(l//2):
-        j = l - 1 - i
-        nums[i], nums[j] = nums[j], nums[i]
+
+
+def _swap(nums1: list[int], nums2: list[int]) -> None:
+    _reverse(nums1)
+    _reverse(nums2)
+    for i in range((len(nums1) + len(nums2))//2):
+        if i < len(nums1) and i < len(nums2):
+            nums1[i], nums2[-(i+1)] = nums2[-(i+1)], nums1[i]
+        elif i >= len(nums1):
+            j = i - len(nums1)
+            nums2[j], nums2[-(i+1)] = nums2[-(i+1)], nums2[j]
+        else:
+            j = i - len(nums2)
+            nums1[i], nums1[-(j+1)] = nums1[-(j+1)], nums2[i]
 
 
 def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
