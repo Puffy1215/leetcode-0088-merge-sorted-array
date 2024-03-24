@@ -33,7 +33,8 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
 
 
 def _reverse(nums: list[int]) -> None:
-    l = len(nums)
+    for i in range(len(nums)//2):
+        nums[i], nums[-(i+1)] = nums[-(i+1)], nums[i]
     for i in range(l//2):
         j = l - 1 - i
         nums[i], nums[j] = nums[j], nums[i]
