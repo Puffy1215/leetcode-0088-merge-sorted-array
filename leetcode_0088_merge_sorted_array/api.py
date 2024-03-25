@@ -56,4 +56,15 @@ def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> No
 
     assert _check_preconditions(nums1, m, nums2, n)
 
-    pass
+    nums1[m:] = nums2
+
+    j = m
+    i = 0
+    while i < m + n:
+        k = 0
+        while j + k < m + n and nums1[i] > nums1[j + k]:
+            k = k + 1
+        if k:
+            _swap(nums1, i, j, k)
+            j = j + k + 1
+        i = i + k + 1
