@@ -26,7 +26,7 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
             if not NUM_MIN <= x <= NUM_MAX:
                 return False
 
-        if sorted(nums[:l]) != nums:
+        if sorted(nums[:l]) != nums[:l]:
             return False
 
     return True
