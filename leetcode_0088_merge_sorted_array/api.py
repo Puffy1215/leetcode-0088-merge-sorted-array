@@ -32,9 +32,10 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
     return True
 
 
-def _reverse(nums: list[int]) -> None:
-    for i in range(len(nums)//2):
-        nums[i], nums[-(i+1)] = nums[-(i+1)], nums[i]
+def _reverse(nums: list[int], i: int, k: int) -> None:
+    l = i + k
+    for j in range(i, k // 2):
+        nums[j], nums[l - (j + 1)] = nums[l - (j + 1)], nums[j]
 
 
 def _swap(nums1: list[int], nums2: list[int]) -> None:
