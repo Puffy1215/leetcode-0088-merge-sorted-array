@@ -38,18 +38,12 @@ def _reverse(nums: list[int], i: int, k: int) -> None:
         nums[j], nums[l - (j + 1)] = nums[l - (j + 1)], nums[j]
 
 
-def _swap(nums1: list[int], nums2: list[int]) -> None:
-    _reverse(nums1)
-    _reverse(nums2)
-    for i in range((len(nums1) + len(nums2))//2):
-        if i < len(nums1) and i < len(nums2):
-            nums1[i], nums2[-(i+1)] = nums2[-(i+1)], nums1[i]
-        elif i >= len(nums1):
-            j = i - len(nums1)
-            nums2[j], nums2[-(i+1)] = nums2[-(i+1)], nums2[j]
-        else:
-            j = i - len(nums2)
-            nums1[i], nums1[-(j+1)] = nums1[-(j+1)], nums2[i]
+def _swap(nums: list[int], i: int, j: int, k: int) -> None:
+    _reverse(nums, i, k)
+    _reverse(nums, j, k)
+    l = j + k
+    for u in range(k):
+        nums[i + u], nums[l - (u + 1)] = nums[l - (u + 1)], nums[i + u]
 
 
 def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
