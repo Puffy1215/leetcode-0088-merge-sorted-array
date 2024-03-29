@@ -34,8 +34,8 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
 
 def _reverse(nums: list[int], i: int, k: int) -> None:
     l = i + k
-    for j in range(i, k // 2):
-        nums[j], nums[l - (j + 1)] = nums[l - (j + 1)], nums[j]
+    for j in range(k // 2):
+        nums[i + j], nums[l - (j + 1)] = nums[l - (j + 1)], nums[i + j]
 
 
 def _swap(nums: list[int], i: int, j: int, k: int) -> None:
