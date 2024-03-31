@@ -39,7 +39,7 @@ def _reverse(nums: list[int], i: int, k: int) -> None:
 
 
 def _swap(nums: list[int], i: int, j: int, k: int) -> None:
-    _reverse(nums, i, k)
+    _reverse(nums, i, min(k, j - i))
     _reverse(nums, j, k)
     l = j + k
     for u in range(k):
@@ -61,5 +61,8 @@ def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> No
             k = k + 1
         if k:
             _swap(nums1, i, j, k)
-            j = j + k + 1
-        i = i + k + 1
+            i = i + k
+        else:
+            i = i + 1
+        if j < i:
+            j = i + 1
