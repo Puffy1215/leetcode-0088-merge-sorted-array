@@ -28,10 +28,10 @@ def test_merge_sorted_array(
 
 
 @pytest.fixture
-def nums_rand() -> Callable[[], tuple[list[int]]]:
+def nums_rand() -> Callable[[], tuple[list[int], list[int]]]:
     """Fixture to generate random x"""
 
-    def _nums_rand() -> tuple[list[int]]:
+    def _nums_rand() -> tuple[list[int], list[int]]:
         l = random.randint(api.LEN_MIN + 1, api.LEN_MAX)
         m = random.randint(api.LEN_MIN, l)
         n = l - m
