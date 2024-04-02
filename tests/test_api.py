@@ -40,4 +40,4 @@ def nums_rand() -> Callable[[], tuple[list[int], list[int]]]:
         nums2 = sorted(nums[m:])
         return nums1, nums2
 
-    return nums_rand
+    return _nums_rand
