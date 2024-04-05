@@ -41,3 +41,22 @@ def nums_rand() -> Callable[[], tuple[list[int], list[int]]]:
         return nums1, nums2
 
     return _nums_rand
+
+
+@pytest.mark.parametrize("run_count", range(10))
+def test_sqrtx_rand(
+    run_count: int,
+    nums_rand: Callable[
+        [], tuple[list[int], list[int]]
+    ],  # pylint: disable=redefined-outer-name
+) -> None:
+    """Tests solution for problem Merge Sorted Array with random nums1 and nums2"""
+
+    random.seed(run_count)
+
+    nums1, nums2 = nums_rand()
+    n = len(nums2)
+    m = len(nums1) - n
+    result = sorted(nums1[:m] + nums2)
+
+    test_merge_sorted_array(result, nums1, m, nums2, n)
