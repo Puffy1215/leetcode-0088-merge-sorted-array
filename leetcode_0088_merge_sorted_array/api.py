@@ -32,37 +32,9 @@ def _check_preconditions(nums1: list[int], m: int, nums2: list[int], n: int) -> 
     return True
 
 
-def _reverse(nums: list[int], i: int, k: int) -> None:
-    l = i + k
-    for j in range(k // 2):
-        nums[i + j], nums[l - (j + 1)] = nums[l - (j + 1)], nums[i + j]
-
-
-def _swap(nums: list[int], i: int, j: int, k: int) -> None:
-    _reverse(nums, i, min(k, j - i))
-    _reverse(nums, j, k)
-    l = j + k
-    for u in range(k):
-        nums[i + u], nums[l - (u + 1)] = nums[l - (u + 1)], nums[i + u]
-
-
 def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     """Solves problem Merge Sorted Array"""
 
     assert _check_preconditions(nums1, m, nums2, n)
 
-    nums1[m:] = nums2
-
-    j = m
-    i = 0
-    while i < m + n:
-        k = 0
-        while j + k < m + n and nums1[i] > nums1[j + k]:
-            k = k + 1
-        if k:
-            _swap(nums1, i, j, k)
-            i = i + k
-        else:
-            i = i + 1
-        if j < i:
-            j = i + 1
+    pass
