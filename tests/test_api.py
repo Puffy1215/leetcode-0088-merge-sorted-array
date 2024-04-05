@@ -27,11 +27,15 @@ def test_merge_sorted_array(
     assert nums1 == result
 
 
+NumsRandResult = tuple[list[int], list[int]]
+NumsRandType = Callable[[], NumsRandResult]
+
+
 @pytest.fixture
-def nums_rand() -> Callable[[], tuple[list[int], list[int]]]:
+def nums_rand() -> NumsRandType:
     """Fixture to generate random x"""
 
-    def _nums_rand() -> tuple[list[int], list[int]]:
+    def _nums_rand() -> NumsRandResult:
         l = random.randint(api.LEN_MIN + 1, api.LEN_MAX)
         m = random.randint(api.LEN_MIN, l)
         n = l - m
@@ -46,9 +50,7 @@ def nums_rand() -> Callable[[], tuple[list[int], list[int]]]:
 @pytest.mark.parametrize("run_count", range(10))
 def test_sqrtx_rand(
     run_count: int,
-    nums_rand: Callable[
-        [], tuple[list[int], list[int]]
-    ],  # pylint: disable=redefined-outer-name
+    nums_rand: NumsRandType,  # pylint: disable=redefined-outer-name
 ) -> None:
     """Tests solution for problem Merge Sorted Array with random nums1 and nums2"""
 
