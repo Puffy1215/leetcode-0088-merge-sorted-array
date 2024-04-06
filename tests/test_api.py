@@ -33,7 +33,7 @@ NumsRandType = Callable[[], NumsRandResult]
 
 @pytest.fixture
 def nums_rand() -> NumsRandType:
-    """Fixture to generate random x"""
+    """Fixture to generate random nums"""
 
     def _nums_rand() -> NumsRandResult:
         l = random.randint(api.LEN_MIN + 1, api.LEN_MAX)
