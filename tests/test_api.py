@@ -48,7 +48,7 @@ def nums_rand() -> NumsRandType:
 
 
 @pytest.mark.parametrize("run_count", range(10))
-def test_sqrtx_rand(
+def test_merge_sorted_array_rand(
     run_count: int,
     nums_rand: NumsRandType,  # pylint: disable=redefined-outer-name
 ) -> None:
